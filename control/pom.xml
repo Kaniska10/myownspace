@@ -12,7 +12,7 @@
 	<artifactId>control</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>control</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Kubenetes controller</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-native</artifactId>
-            <version>${spring-native.version}</version>
+            <version>0.12.1</version>
         </dependency>		
 	
 	</dependencies>
@@ -82,7 +82,7 @@
             <plugin>
                 <groupId>org.springframework.experimental</groupId>
                 <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
+                <version>0.12.1</version>
                 <executions>
                     <execution>
                         <id>test-generate</id>
