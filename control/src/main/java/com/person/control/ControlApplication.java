@@ -223,10 +223,10 @@ public class ControlApplication {
 		}
 	}
 	
-	private static V1ObjectMeta addOwnerReference(String requestName, V1NewCrd foo, KubernetesObject kubernetesObject) {
-		Assert.notNull(foo, () -> "the V1NewCrd must not be null");
-		return kubernetesObject.getMetadata().addOwnerReferencesItem(new V1OwnerReference().kind(foo.getKind())
-				.apiVersion(foo.getApiVersion()).controller(true).uid(foo.getMetadata().getUid()).name(requestName));
+	private static V1ObjectMeta addOwnerReference(String requestName, V1NewCrd crd, KubernetesObject kubernetesObject) {
+		Assert.notNull(crd, () -> "the V1NewCrd must not be null");
+		return kubernetesObject.getMetadata().addOwnerReferencesItem(new V1OwnerReference().kind(crd.getKind())
+				.apiVersion(crd.getApiVersion()).controller(true).uid(crd.getMetadata().getUid()).name(requestName));
 	}
 
 }
