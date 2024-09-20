@@ -8,7 +8,6 @@ import lombok.SneakyThrows;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
-import org.springframework.nativex.hint.TypeHint;
 import org.springframework.util.Assert;
 import org.springframework.util.FileCopyUtils;
 
@@ -48,14 +47,7 @@ import java.util.concurrent.Executors;
 import io.kubernetes.client.util.Yaml;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 
-import org.springframework.nativex.hint.TypeAccess;
 
-
-
-@TypeHint(
-        access = {TypeAccess.DECLARED_FIELDS, TypeAccess.DECLARED_METHODS, TypeAccess.DECLARED_CONSTRUCTORS, TypeAccess.DECLARED_CLASSES}, //
-        types = {JsonElement.class, V1NewCrd.class, V1NewCrdList.class, V1NewCrdSpec.class, V1NewCrdStatus.class}//
-)
 @SpringBootApplication
 public class ControlApplication {
 	
