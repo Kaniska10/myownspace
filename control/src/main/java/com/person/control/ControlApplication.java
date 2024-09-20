@@ -58,7 +58,7 @@ public class ControlApplication {
 	}
 	
     @Bean
-    GenericKubernetesApi<V1NewCrd, V1NewCrdList> foosApi(ApiClient apiClient) {
+    GenericKubernetesApi<V1NewCrd, V1NewCrdList> crdsApi(ApiClient apiClient) {
         return new GenericKubernetesApi<>(V1NewCrd.class, V1NewCrdList.class, "com.person.control", "v1", "new-crds", apiClient);
     }
     
@@ -68,7 +68,7 @@ public class ControlApplication {
     }
     
 	@Bean
-	SharedIndexInformer<V1NewCrd> foosSharedIndexInformer(SharedInformerFactory sharedInformerFactory,
+	SharedIndexInformer<V1NewCrd> crdsSharedIndexInformer(SharedInformerFactory sharedInformerFactory,
 			GenericKubernetesApi<V1NewCrd, V1NewCrdList> api) {
 		return sharedInformerFactory.sharedIndexInformerFor(api, V1NewCrd.class, 0);
 	}
@@ -126,13 +126,13 @@ public class ControlApplication {
 	@Bean
 	Reconciler reconciler(@Value("classpath:configmap.yaml") Resource configMapYaml,
 			@Value("classpath:deployment.yaml") Resource deploymentYaml,
-			SharedIndexInformer<V1NewCrd> v1FooSharedIndexInformer, AppsV1Api appsV1Api, CoreV1Api coreV1Api) {
+			SharedIndexInformer<V1NewCrd> v1CrdSharedIndexInformer, AppsV1Api appsV1Api, CoreV1Api coreV1Api) {
 		return request -> {
 			try {
-				// create new one on k apply -f foo.yaml
+				// create new one 
 				String requestName = request.getName();
 				String key = request.getNamespace() + '/' + requestName;
-				V1NewCrd crd = v1FooSharedIndexInformer.getIndexer().getByKey(key);
+				V1NewCrd crd = v1CrdSharedIndexInformer.getIndexer().getByKey(key);
 				if (crd == null) { // deleted. we use ownerreferences so dont need to do
 									// anything special here
 					return new Result(false);
@@ -158,7 +158,6 @@ public class ControlApplication {
 				}, () -> {
 					V1ConfigMap v1ConfigMap = coreV1Api.replaceNamespacedConfigMap(configMapName, namespace, configMap,
 							pretty, dryRun, fieldManager, fieldValidation);
-					// todo now we need to add an annotation to the deployment
 
 					return v1ConfigMap;
 				});
