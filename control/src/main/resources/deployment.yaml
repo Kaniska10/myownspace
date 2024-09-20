@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: loop-deployment
   labels:
-    app: nginx
+    app: loop_request
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: loop_request
   template:
     metadata:
       labels:
-        app: nginx
+        app: loop_request
     spec:
       containers:
-        - name: nginx
-          image: nginx:1.14.2
+        - name: loop_request
+          image: loop_request_image:latest
           ports:
             - containerPort: 80
