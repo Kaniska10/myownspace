@@ -1,0 +1,25 @@
+metadata:
+  name: myresources.app.mydomain.com
+spec:
+  group: app.mydomain.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              image:
+                type: string
+              replicas:
+                type: integer
+  scope: Namespaced
+  names:
+    plural: myresources
+    singular: myresource
+    kind: MyResource
+    shortNames:
+      - mr
