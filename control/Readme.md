@@ -17,5 +17,4 @@ It works based on the Reconcile function such that it checks & creates the inten
 The inner script is same as the one as shared on Friday.
 https://github.com/Kaniska10/myownspace/blob/master/control/script/loop_request.sh 
 
-Currently I am encountering an issue with the deployment of the main controller which is probably because ofincorrect config or permission problem 
-to call kubernetes API.
+Currently I am encountering an issue with the deployment of the main controller which is probably because ofincorrect config or permission problem to call kubernetes API which is required to be checked further. 
