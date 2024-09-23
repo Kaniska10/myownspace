@@ -32,7 +32,7 @@ import com.person.control.util.ConstantsHolder;
  */
 @ApiModel(description = "Image is the Schema for the image API")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen",
-		date = "2022-04-09T20:49:33.104Z[Etc/UTC]")
+		date = "2024-09-18T18:21:12.109Z[Etc/UTC]")
 public class V1NewCrd implements io.kubernetes.client.common.KubernetesObject {
 
 	public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";

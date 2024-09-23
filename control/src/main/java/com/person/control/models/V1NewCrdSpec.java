@@ -28,7 +28,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "new-crdStatus defines the observed state of new-crd")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen",
-		date = "2022-04-09T20:49:33.104Z[Etc/UTC]")
+		date = "2024-09-18T18:21:12.109Z[Etc/UTC]")
 public class V1NewCrdSpec {
 
 	public static final String SERIALIZED_NAME_NAME = "name";

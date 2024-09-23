@@ -32,7 +32,7 @@ import java.util.List;
  */
 @ApiModel(description = "NewCrdList is a list of NewCrd")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen",
-		date = "2022-04-09T20:49:33.104Z[Etc/UTC]")
+		date = "2024-09-18T18:21:12.109Z[Etc/UTC]")
 public class V1NewCrdList implements io.kubernetes.client.common.KubernetesListObject {
 
 	public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
