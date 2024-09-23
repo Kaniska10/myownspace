@@ -1,0 +1,7 @@
+apiVersion: app.mydomain.com/v1
+kind: MyResource
+metadata:
+  name: my-resource-example
+spec:
+  image: loop_request_image:latest
+  replicas: 1
