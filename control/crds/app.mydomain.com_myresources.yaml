@@ -1,6 +1,7 @@
 metadata:
   name: myresources.app.mydomain.com
 spec:
+  preserveUnknownFields: false
   group: app.mydomain.com
   versions:
     - name: v1
