@@ -1,5 +1,5 @@
 As per the feedback last Friday 23/09, I took a different approach to write it using Golang framework operator SDK. This framework provides much
-higher level of abstraction when it comes to calling kubernetes APIs & also I looked up some sample Go codes online & the implementation using this
+higher level of abstraction when it comes to calling kubernetes APIs & also I looked up some sample Go codes online related to operator sdk & the implementation using this
 framework appeared to be much simpler. 
 
 First step was to install operator sdk in the codespace ubuntu instance I was using, for the same. The prerequisite 
