@@ -30,7 +30,7 @@ Then applied both CRD & CR with the following kubectl apply commands but still t
 kubectl apply -f app.mydomain.com_myresources.yaml
 kubectl apply -f myresource.yaml
 
-I verified that custom resource was created all fine. Didn't find any issue controller-manager pod log either, as there I only see the controller manager startup log statements. I had initially thought that perhaps the myresource_controller.go file written for the reconciler has to be explicitly invoked from main.go inside the operator sdk package but then while checking the main.go I saw that the reconciler function is already invoked during the startup of the manager, so should ideally be picked automatically.
+I verified that custom resource was created all fine. Didn't find any issue in the controller-manager pod log either, as there I only see the controller manager startup log statements. I had initially thought that perhaps the myresource_controller.go file written for the reconciler has to be explicitly invoked from main.go inside the operator sdk package but then while checking the main.go I saw that the reconciler function is already invoked during the startup of the manager, so should ideally be picked automatically.
 
 Also I checked permissions which are already bundled as part of the operator sdk package in config/rbac location & they look fine. SO this issue would require further investigation. 
 
