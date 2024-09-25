@@ -1,0 +1,26 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: create-pods
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: mysdk-controller-manager
+  namespace: mysdk-system
+roleRef:
+  kind: Role
+  name: pod-creator
+  apiGroup: rbac.authorization.k8s.io
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: create-pods
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: mysdk-controller-manager
+  namespace: mysdk-system
+roleRef:
+  kind: Role
+  name: pod-creator
+  apiGroup: rbac.authorization.k8s.io

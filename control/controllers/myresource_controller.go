@@ -1,30 +1,34 @@
-package controllers
+package controller
 
 import (
     "context"
-    "fmt"
     "github.com/go-logr/logr"
+    "k8s.io/apimachinery/pkg/runtime"
+    ctrl "sigs.k8s.io/controller-runtime"
     appv1 "github.com/myuser/my-operator/api/v1"
     corev1 "k8s.io/api/core/v1"
+    metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
     "k8s.io/apimachinery/pkg/api/errors"
     "k8s.io/apimachinery/pkg/types"
     "sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
-    "sigs.k8s.io/controller-runtime/pkg/controller"
     "sigs.k8s.io/controller-runtime/pkg/reconcile"
     "sigs.k8s.io/controller-runtime/pkg/client"
     "sigs.k8s.io/controller-runtime/pkg/log"
-    "sigs.k8s.io/controller-runtime/pkg/manager"
 )
 
 // MyResourceReconciler reconciles a MyResource object
 type MyResourceReconciler struct {
     client.Client
+    Log    logr.Logger
     Scheme *runtime.Scheme
 }
 
+//+kubebuilder:rbac:groups=app.mydomain.com,resources=myresources,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=app.mydomain.com,resources=myresources/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=app.mydomain.com,resources=myresources/finalizers,verbs=update
+
 // Reconcile reads that state of the cluster for a MyResource object
-func (r *MyResourceReconciler) Reconcile(req reconcile.Request) (reconcile.Result, error) {
-    ctx := context.Background()
+func (r *MyResourceReconciler) Reconcile(ctx context.Context,req reconcile.Request) (reconcile.Result, error) {
     log := log.FromContext(ctx)
 
     var myResource appv1.MyResource

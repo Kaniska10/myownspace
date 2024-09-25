@@ -1,0 +1,10 @@
+apiVersion: app.mydomain.com/v1
+kind: MyResource
+metadata:
+  labels:
+    app.kubernetes.io/name: mysdk
+    app.kubernetes.io/managed-by: kustomize
+  name: myresource-sample
+spec:
+  image: kaniska487/scriptrepo:1.0.0
+  replicas: 1
