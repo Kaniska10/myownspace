@@ -45,7 +45,8 @@ The updated CRD in location ===> https://github.com/Kaniska10/myownspace/blob/ma
 Then for the main issue on why the custom code written for controller wasn't getting picked, I saw in the main Dockerfile that in the package while creating the build, its copying a default file with the same name in a internal/controller location, so I placed my changes in that file & there were few mistakes in my code corrected them.
 The code is available in location ===> https://github.com/Kaniska10/myownspace/blob/master/control/controllers/myresource_controller.go 
 
-After this while I deployed the manager, faced some permission issues as shown below. 
+After this while I deployed the manager, faced some permission issues as shown below.
+
 2024-09-25T13:24:36Z    INFO    Starting Controller     {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource"}
 W0925 13:24:36.795652       1 reflector.go:539] pkg/mod/k8s.io/client-go@v0.29.2/tools/cache/reflector.go:229: failed to list *v1.Pod: pods is forbidden: User "system:serviceaccount:mysdk-system:mysdk-controller-manager" cannot list resource "pods" in API group "" at the cluster scope
 E0925 13:24:36.795696       1 reflector.go:147] pkg/mod/k8s.io/client-go@v0.29.2/tools/cache/reflector.go:229: Failed to watch *v1.Pod: failed to list *v1.Pod: pods is forbidden: User "system:serviceaccount:mysdk-system:mysdk-controller-manager" cannot list resource "pods" in API group "" at the cluster scope
