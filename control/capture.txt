@@ -1,0 +1,94 @@
+@Kaniska10 ➜ ~/mysdk $ kubectl get pods --all-namespaces
+NAMESPACE      NAME                                       READY   STATUS    RESTARTS       AGE
+default        myresource-sample                          1/1     Running   0              8m38s
+kube-system    coredns-7db6d8ff4d-mzvbq                   1/1     Running   12 (23m ago)   29h
+kube-system    etcd-arcsetup                              1/1     Running   12 (23m ago)   29h
+kube-system    kube-apiserver-arcsetup                    1/1     Running   12 (23m ago)   29h
+kube-system    kube-controller-manager-arcsetup           1/1     Running   12 (23m ago)   29h
+kube-system    kube-proxy-h2nff                           1/1     Running   12 (23m ago)   29h
+kube-system    kube-scheduler-arcsetup                    1/1     Running   12 (23m ago)   29h
+kube-system    storage-provisioner                        1/1     Running   23 (23m ago)   29h
+mysdk-system   mysdk-controller-manager-fb554b867-847xg   2/2     Running   13 (21m ago)   63m
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ kubectl get pods 
+NAME                READY   STATUS    RESTARTS   AGE
+myresource-sample   1/1     Running   0          8m52s
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ kubectl logs pod/mysdk-controller-manager-fb554b867-847xg -n mysdk-system --tail=6
+@Kaniska10 ➜ ~/mysdk $ kubectl logs pod/mysdk-controller-manager-fb554b867-847xg -n mysdk-system --tail=6
+2024-09-25T13:55:24Z    INFO    Creating a new Pod      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "cfc9c67f-f8b3-49ec-8fdf-236709b450d3", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+2024-09-25T13:55:24Z    INFO    Pod already exists      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "6d37b565-0a3f-4904-a3a5-1d1a9c1ef8a6", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+2024-09-25T13:55:24Z    INFO    Pod already exists      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "c1345f9f-246a-42a5-8a92-c9ec46d4092f", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+2024-09-25T13:55:24Z    INFO    Pod already exists      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "4e4e14ad-cb0a-44ef-8ea1-2c6332b02603", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+2024-09-25T13:55:24Z    INFO    Pod already exists      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "628edf57-fcea-40a4-9381-c6eb786088f0", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+2024-09-25T13:55:33Z    INFO    Pod already exists      {"controller": "myresource", "controllerGroup": "app.mydomain.com", "controllerKind": "MyResource", "MyResource": {"name":"myresource-sample","namespace":"default"}, "namespace": "default", "name": "myresource-sample", "reconcileID": "6d5b0415-8e23-4a38-9fd9-147827fa9bab", "Pod.Namespace": "default", "Pod.Name": "myresource-sample"}
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ kubectl logs pod/myresource-sample -n default --tail=20
+100    31  100    31    0     0    113      0 --:--:-- --:--:-- --:--:--   113
+Responsive is better than fast.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    26  100    26    0     0     97      0 --:--:-- --:--:-- --:--:--    98
+Practicality beats purity.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    36  100    36    0     0    142      0 --:--:-- --:--:-- --:--:--   142
+Mind your words, they are important.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    37  100    37    0     0    134      0 --:--:-- --:--:-- --:--:--   134
+Non-blocking is better than blocking.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    39  100    39    0     0    147      0 --:--:-- --:--:-- --:--:--   148
+Anything added dilutes everything else.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ kubectl logs pod/myresource-sample -n default --tail=20
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    26  100    26    0     0     93      0 --:--:-- --:--:-- --:--:--    93
+Favor focus over features.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    15  100    15    0     0     57      0 --:--:-- --:--:-- --:--:--    57
+Encourage flow.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    19  100    19    0     0     76      0 --:--:-- --:--:-- --:--:--    76
+Accessible for all.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    36  100    36    0     0    139      0 --:--:-- --:--:-- --:--:--   138
+Mind your words, they are important.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    33  100    33    0     0    124      0 --:--:-- --:--:-- --:--:--   125
+Avoid administrative distraction.
+@Kaniska10 ➜ ~/mysdk $ 
+@Kaniska10 ➜ ~/mysdk $ kubectl logs pod/myresource-sample -n default --tail=20
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    33  100    33    0     0    124      0 --:--:-- --:--:-- --:--:--   125
+Avoid administrative distraction.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    26  100    26    0     0     90      0 --:--:-- --:--:-- --:--:--    90
+Favor focus over features.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    35  100    35    0     0    132      0 --:--:-- --:--:-- --:--:--   133
+Approachable is better than simple.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    37  100    37    0     0    142      0 --:--:-- --:--:-- --:--:--   142
+Non-blocking is better than blocking.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    39  100    39    0     0    146      0 --:--:-- --:--:-- --:--:--   146
+Anything added dilutes everything else.
+@Kaniska10 ➜ ~/mysdk $ 
